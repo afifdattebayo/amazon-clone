@@ -6,13 +6,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors:{
-        amazone_blue:{
-          light:"#232F3E",
+      colors: {
+        amazone_blue: {
+          light: "#232F3E",
           DEFAULT: "#131921"
         }
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }
