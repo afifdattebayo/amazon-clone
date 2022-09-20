@@ -3,11 +3,12 @@ import LogoImage from '../public/amazon_PNG11.png'
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/outline"
 import { signIn, signOut, useSession } from "next-auth/react"
 import {useRouter} from "next/router"
-
+import {useSelector} from "react-redux"
+import {selectItems} from "../slice/basketSlice"
 function Header() {
   const { data: session } = useSession()
   const router = useRouter()
-
+  const items = useSelector(selectItems)
   // console.info(session);
 
   return (
@@ -49,7 +50,7 @@ function Header() {
             <p className="fornt-extrabold md:text-sm">& Orders</p>
           </div>
           <div className="link relative flex items-center" onClick={()=> router.push("/checkout")}>
-            <span className="absolute top-0 right-0 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">0</span>
+            <span className="absolute top-0 right-0 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">{items.length}</span>
             <ShoppingCartIcon className='h-10' />
             <p className="hidden md:inline font-extrabold md:text-sm mt-2">Basket</p>
           </div>

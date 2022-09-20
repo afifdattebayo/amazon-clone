@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { MinusIcon, PlusIcon, StarIcon } from '@heroicons/react/solid';
 import Currency from "react-currency-formatter"
 function CheckoutProduct({
     image
 }) {
-    const [hasPrime, setHasPrime] = useState(Math.random() < 0.5)
-    console.info(hasPrime);
+    const [hasPrime, setHasPrime] = useState(false)
+
+    useEffect(() => {
+        setHasPrime(Math.random() < 0.5)
+    }, [])
+
     return (
         <div className="grid grid-cols-5 my-5">
             <Image
@@ -54,7 +58,7 @@ function CheckoutProduct({
                 <button className="button">Add To Basket</button>
                 <button className="button">Remove From Basket</button>
             </div>
-            
+
         </div>
     )
 }

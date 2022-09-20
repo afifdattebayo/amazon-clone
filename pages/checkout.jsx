@@ -22,11 +22,11 @@ function Checkout() {
                     <div className="flex flex-col p-5 space-y-10 bg-white">
                         <div className="text-3xl border-b pb-4">
                             {
-                                Array(3).fill().map(() => (
-                                    <>
+                                Array(3).fill().map((_, i) => (
+                                    <div key={i}>
                                         <CheckoutProduct
                                             image={productImage}
-                                        // key={i}
+                                            
                                         // id={item.id}
                                         // title={item.title}
                                         // rating={item.rating}
@@ -37,8 +37,8 @@ function Checkout() {
                                         // hasPrime={item.hasPrime}
                                         // quantity={item.quantity}
                                         />
-                                        <hr className='border-1 border-gray-200'/>
-                                    </>
+                                        <hr className='border-1 border-gray-200' />
+                                    </div>
                                 ))
                             }
                         </div>
