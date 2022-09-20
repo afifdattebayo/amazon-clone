@@ -14,7 +14,7 @@ function Footer() {
             </div>
             {/* footer 2st */}
             <div className='bg-[#232f3e] text-white font-semibold text-center'>
-                <div className='max-w-screen-xl text-center mx-auto font-semibold text-left px-8 grid sm:grid-cols-3 lg:grid-cols-4 py-10 sm:text-left'>
+                <div className='max-w-screen-xl mx-auto font-semibold text-left px-8 grid sm:grid-cols-3 lg:grid-cols-4 py-10 sm:text-left'>
                     <div>
                         <h4 className='text-xl pb-2'>Get to know Use</h4>
                         <ul className='text-sm'>
