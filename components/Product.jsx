@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { StarIcon } from "@heroicons/react/solid"
 import Currency from "react-currency-formatter"
@@ -9,7 +9,12 @@ import Currency from "react-currency-formatter"
 function Product({ id, title, price, description, category, image, rating }) {
     // const [rating] = useState(Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + 1)
     const ratingApi = Math.floor(rating.rate)
-    const [hasPrime] = useState(Math.random() < 0.5)
+    const [hasPrime, setHasPrime] = useState(false)
+
+    useEffect(() => {
+        setHasPrime(Math.random() < 0.5)
+    }, [])
+
     return (
         <div className='relative flex flex-col m-5 p-10 bg-white z-30'>
             <p className='absolute top-2 right-2 text-xs text-gray-400'>{category}</p>
@@ -41,6 +46,7 @@ function Product({ id, title, price, description, category, image, rating }) {
                     <p className='text-xs text-gray-500'>Free Next-day Delivery</p>
                 </div>
             )}
+            
             <button className='button'>Add To Basket</button>
 
         </div>

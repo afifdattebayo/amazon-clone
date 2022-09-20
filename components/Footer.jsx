@@ -1,14 +1,18 @@
 import React from 'react'
 import { useRouter } from "next/router"
+import Image from 'next/image'
+import Logo from "../public/amazon_PNG11.png"
 
 function Footer() {
     const router = useRouter()
 
     return (
         <footer>
+            {/* footer 1st */}
             <div className='bg-[#485769] text-white text-sm font-semibold py-4'>
                 <p className='text-center cursor-pointer' onClick={() => router.push("/")}>Back To Top</p>
             </div>
+            {/* footer 2st */}
             <div className='bg-[#232f3e] text-white font-semibold text-center'>
                 <div className='max-w-screen-xl text-center mx-auto font-semibold text-left px-8 grid sm:grid-cols-3 lg:grid-cols-4 py-10 sm:text-left'>
                     <div>
@@ -59,6 +63,168 @@ function Footer() {
                     </div>
                 </div>
             </div>
+            {/* footer 3rd */}
+            
+            <div className='bg-[#232f3e] text-white font-semibold text-center border-t border-gray-300/30 py-10'>
+                <div className='flex justify-center'>
+                    <div className='mr-10'>
+                        <Image
+                            src={Logo}
+                            width={75}
+                            height={23}
+                            alt="amazon"
+                        />
+                    </div>
+                    <div className='space-x-4'>
+                        <button className="border border-gray-300 rounded-sm px-5 cursor-pointer">English</button>
+                        <button className="border border-gray-300 rounded-sm px-5 cursor-pointer">
+                            <span className='font-semibold'>$</span>-U.S. Dollar
+                        </button>
+                        <button className="border border-gray-300 rounded-sm px-5 cursor-pointer">United States</button>
+                    </div>
+                </div>
+            </div>
+            {/* footer 4th */}
+            <div className='bg-[#232f3e] text-white font-semibold'>
+                <div className='max-w-screen-xl mx-auto grid grid-cols-3 gap-2
+                items-baseline sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-7 space-y-5
+                px-6 py-8
+                 '>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                    <div className='text-left link'>
+                        <h3 className='text-sm'>Amazon Music</h3>
+                        <p className='font-light'>Stream millions of songs</p>
+                    </div>
+                </div>
+            </div>
+            
         </footer>
     )
 }
