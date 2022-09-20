@@ -1,8 +1,13 @@
 import Image from 'next/image'
 import LogoImage from '../public/amazon_PNG11.png'
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/outline"
+import { signIn, signOut, useSession } from "next-auth/react"
 
 function Header() {
+  const { data: session } = useSession()
+
+  // console.info(session);
+
   return (
     <header>
       {/* top nav */}
@@ -24,14 +29,17 @@ function Header() {
 
         {/* right */}
         <div className="text-white flex items-center text-xs space-x-8 mx-6 whitespace-nowrap relative">
-          <div className="link relative">
-            <p className="hover:underline">
-              Sign In
+          <div className="relative">
+            <p className="link" onClick={!session ? signIn : null}>
+              {session ? `Hello, ${session.user.name}` : "Sign In"}
             </p>
-            <p className="font-extrabold md:text-sm"> Account & List</p>
-            <span className="absolute bottom-0-right-7 h-5 bg-yellow-400 text-center cursor-pointer w-13  text-black font-bold rounded px-1">
-              Sign In
-            </span>
+            <p className=" link font-extrabold md:text-sm"> Account & List</p>
+           {
+            session &&  
+            <span className="absolute bottom-0-right-7 h-5 bg-yellow-400 text-center cursor-pointer w-13  text-black font-bold rounded px-1" onClick={signOut}>
+              Sign Out
+          </span>
+           }
           </div>
           <div className="link">
             <p>Return</p>
