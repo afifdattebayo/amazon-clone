@@ -4,6 +4,8 @@ import { StarIcon } from "@heroicons/react/solid"
 import Currency from "react-currency-formatter"
 import { useDispatch } from "react-redux"
 import { addToBasket } from "../slice/basketSlice"
+import { signIn } from "next-auth/react"
+import { useSession } from 'next-auth/react'
 // const MAX_RATING = 5
 // const MIN_RATING = 1
 
@@ -12,6 +14,7 @@ function Product({ id, title, price, description, category, image, rating }) {
     const ratingApi = Math.floor(rating.rate)
     const [hasPrime, setHasPrime] = useState(false)
     const dispatch = useDispatch()
+    const session = useSession()
 
     useEffect(() => {
         setHasPrime(Math.random() < 0.5)
@@ -19,7 +22,7 @@ function Product({ id, title, price, description, category, image, rating }) {
 
     const addItemToBasket = () => {
         const product = {
-            id, title, price, description, category, image, hasPrime
+            id, title, price, description, category, image, hasPrime, rating
         }
         dispatch(addToBasket(product))
     }
@@ -55,7 +58,7 @@ function Product({ id, title, price, description, category, image, rating }) {
                 </div>
             )}
 
-            <button className='button' onClick={addItemToBasket}>Add To Basket</button>
+            <button className='button' onClick={session.data? addItemToBasket : signIn}>Add To Basket</button>
 
         </div>
     )

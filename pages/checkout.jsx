@@ -2,13 +2,21 @@ import React from 'react'
 import Header from '../components/Header'
 import Image from 'next/image'
 import CheckoutProduct from '../components/CheckoutProduct'
-import productImage from "../public/snack.jpg"
+import { useSelector } from "react-redux"
+import { selectItems, selectTotal } from "../slice/basketSlice"
+import { useSession } from 'next-auth/react'
+import Currency from "react-currency-formatter"
+import { signIn } from "next-auth/react"
 
 function Checkout() {
+    const items = useSelector(selectItems)
+    const total = useSelector(selectTotal)
+    const session = useSession()
+
     return (
         <div className="bg-gray-100">
             <Header />
-            <main className="max-w-6xl mx-auto">
+            <main className="lg:flex max-w-6xl mx-auto">
                 <div className="flex-grow m-5 shadow-sm">
                     <div className='text-center'>
                         <Image
@@ -18,32 +26,72 @@ function Checkout() {
                             objectFit='contain'
                         />
                     </div>
-
                     <div className="flex flex-col p-5 space-y-10 bg-white">
-                        <div className="text-3xl border-b pb-4">
-                            {
-                                Array(3).fill().map((_, i) => (
-                                    <div key={i}>
-                                        <CheckoutProduct
-                                            image={productImage}
-                                            
-                                        // id={item.id}
-                                        // title={item.title}
-                                        // rating={item.rating}
-                                        // price={item.price}
-                                        // description={item.description}
-                                        // category={item.category}
-                                        // image={item.image}
-                                        // hasPrime={item.hasPrime}
-                                        // quantity={item.quantity}
-                                        />
-                                        <hr className='border-1 border-gray-200' />
-                                    </div>
-                                ))
-                            }
-                        </div>
+                        {
+                            session.data ? (
+                                items.length > 0 ? (
+                                    <h1 className='font-bold text-lg'>SHOPPING BASKET</h1>
+                                ) : (
+                                    <h1 className='font-bold text-lg text-gray-400 self-center'>NO CART TO ADD BASKET BEFORE</h1>
+                                )
+                            ) : (
+                                <h1 className='font-bold text-lg text-gray-400 self-center'>Please <span className='underline cursor-pointer' onClick={signIn}>Login</span> Before</h1>
+                            )
+                        }
+
+                        {
+                            session.data && (
+
+                                <div className="text-3xl">
+                                    {
+                                        items.map((item, index) => (
+                                            <div key={index}>
+                                                <CheckoutProduct
+                                                    id={item.id}
+                                                    title={item.title}
+                                                    rating={item.rating}
+                                                    price={item.price}
+                                                    description={item.description}
+                                                    category={item.category}
+                                                    image={item.image}
+                                                    hasPrime={item.hasPrime}
+                                                    quantity={item.quantity}
+                                                />
+                                                {
+                                                    (items.length - 1) !== index &&
+                                                    <hr className='border-1 border-gray-200' />
+                                                }
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            )
+                        }
+
                     </div>
                 </div>
+                {
+                    session.data && (
+
+                        (items.length > 0) && (
+                            <div className="flex flex-col bg-white p-10 shadow-md m-5">
+
+
+                                <h2 className="whitespace-nowrap font-bold">
+                                    Subtotal({items.length} items)
+                                    <span className="font-bold">
+                                        <Currency quantity={total} currency="USD" />
+                                    </span>
+                                </h2>
+                                <button className={`button mt-2 ${!session.data && 'from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed'}`}>
+                                    {!session.data ? "Sign in to Checkout" : "Process to checkout"}
+                                </button>
+
+
+                            </div>
+                        )
+                    )
+                }
             </main>
         </div>
     )
